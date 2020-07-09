@@ -125,7 +125,7 @@ def main():
 	curs=conn.cursor()
 	try:
 		if Debugg: print "About to start storing all the values"
-		tempsql = "INSERT INTO " + MainTableName + " (timestamp, " + str(VarArrayDeviceId)[1:-1] + ") VALUES (datetime('now')," + SQLStringnumberIns + ");"
+		tempsql = "INSERT INTO " + MainTableName + " (timestamp, " + str(VarArrayDeviceId)[1:-1] + ") VALUES (datetime('now')," + SQLStringnumberIns + ",'localtime');"
 		if Debugg: print "Using SQL: execute(" + tempsql + "," + str(VarArrayTemp)[1:-1] + ")"
 		curs.execute(tempsql, (VarArrayTemp) )
 		if Debugg: print "Success on storing all temps"
@@ -143,7 +143,7 @@ def main():
 				pass # handle the error
 		try:
 			if Debugg: print "Testing Storing Again:"
-			tempsql = "INSERT INTO " + MainTableName + " (timestamp, " + str(VarArrayDeviceId)[1:-1] + ") VALUES (datetime('now')," + SQLStringnumberIns + ");"
+			tempsql = "INSERT INTO " + MainTableName + " (timestamp, " + str(VarArrayDeviceId)[1:-1] + ") VALUES (datetime('now')," + SQLStringnumberIns + "); "
 			if Debugg: print "Using SQL: execute(" + tempsql + "," + str(VarArrayTemp)[1:-1] + ")"
 			curs.execute(tempsql, (VarArrayTemp))
 			if Debugg: print "Success on storing all temps"
